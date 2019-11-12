@@ -21,21 +21,21 @@ public class RewardSummary {
 
 	}
 
-	// Three months reward point addition for each Customer
+	// Sum reward points for invoices of three months
 	private static long calculateRewardPointsForThreeMonths(Map<String, List<Long>> invoicesOfThreeMonths) {
 		return invoicesOfThreeMonths.entrySet().stream().mapToLong((e) -> {
 			return rewardPointsforEachMonth(e.getValue());
 		}).sum();
 	}
 
-	// Total reward point addition of each month's invoice
+	// Sum reward points of all invoices in a month
 	private static long rewardPointsforEachMonth(final List<Long> invoicesInEachmonth) {
 		return invoicesInEachmonth.stream().mapToLong((transactionAmt) -> {
 			return rewardPointsForEachInvoice(transactionAmt);
 		}).sum();
 	}
 
-	// reward points for each invoice
+	// calculate reward points for each invoice
 	private static long rewardPointsForEachInvoice(final long invoiceAmount) {
 		if (invoiceAmount >= 50 && invoiceAmount <= 100) {
 			return invoiceAmount - 50;
