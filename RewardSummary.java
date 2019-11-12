@@ -1,4 +1,4 @@
-package com.client.rewards.summary;
+package com.customer.rewards.summary;
 
 import java.util.*;
 
